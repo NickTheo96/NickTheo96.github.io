@@ -40,6 +40,17 @@
 document.getElementById("cfly").src=document.getElementById("cfly").src + "?tc=" + Math.random()* 100000000000000000000; ;(function(){ 'use strict'; var cfly = window._conversionflyMagic = window._conversionflyMagic || {}; cfly.redirectCallback = function redirectCallback(response) { if (response.redirect) { window.location.replace(response.redirectUrl); } }; var cflyUrl = 'https://conversionfly.com/nicktheo/urlcheckJson.php'; var callback = 'callback=_conversionflyMagic.redirectCallback'; var url = 'url=' + window.location.href; var script = document.createElement('script'); script.setAttribute('src', cflyUrl + '?' + callback + '&' + url); document.head.appendChild(script); return; }());
 // ]]></script><!--End Conversion Fly Tracking Code-->
 	</body>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134120301-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134120301-1');
+</script>
+
 
 
 </html>
