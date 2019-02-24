@@ -1,6 +1,6 @@
 body 
 {
-	background:#999;
+	background:#f8f8ff;
 	font-family: arial;
 }
 /*
@@ -27,8 +27,12 @@ p
 	color:#777;
 }
 
-#special
-{
-	background: red;
-	color:none;
+.column {
+	float: left;
+	width: 30.0%;
+	padding: 5px;
+}
+
+.heading {
+	text-align: center;
 }
