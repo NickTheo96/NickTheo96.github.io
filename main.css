@@ -29,8 +29,10 @@ p
 
 .column {
 	float: left;
-	width: 30.0%;
+	max-width: 30%;
+	height: auto;
 	padding: 5px;
+	border-radius: 8px;
 }
 
 .heading {
