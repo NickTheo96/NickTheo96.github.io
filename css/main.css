@@ -277,6 +277,10 @@ main {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
+
+  /* ! Updated on phones to make heading smaller */
+  h1 { font-size: 40px !important; }
+  h2 { font-size: 20px !important; }
   main {
     padding: 2rem; }
     main #home h1 {
@@ -284,5 +288,6 @@ main {
     main .lg-heading {
       margin-top: 1rem;
       font-size: 5rem; }
+
   .projects {
     grid-template-columns: 1fr; } }
