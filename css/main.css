@@ -300,9 +300,9 @@ main {
 @media screen and (max-width: 400px) {
 
   /* ! Updated on phones to make heading smaller */
-  h1 { font-size: 40px !important; }
+  h1 { font-size: 36px !important; }
   h2 { font-size: 20px !important; }
-  .text-mobile { font-size: 20px !important; }
+  .text-mobile { font-size: 16px !important; }
   main {
     padding: 2rem; }
   main #home h1 {
