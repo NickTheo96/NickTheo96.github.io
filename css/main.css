@@ -142,6 +142,9 @@ header {
 .text-secondary {
   color: #eece1a; }
 
+.text-mobile { }
+
+
 main {
   padding: 4rem;
   min-height: calc(100vh - 60px); }
@@ -251,6 +254,7 @@ main {
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem; }
+
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -276,18 +280,36 @@ main {
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 580px) {
+
+  /* ! Updated on phones to make heading smaller */
+  h1 { font-size: 46px !important; }
+  h2 { font-size: 20px !important; }
+  .text-mobile { font-size: 20px !important; }
+main {
+  padding: 2rem; }
+  main #home h1 {
+    margin-top: 10vh; }
+  main .lg-heading {
+    margin-top: 1rem;
+    font-size: 5rem; }
+
+.projects {
+  grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 400px) {
 
   /* ! Updated on phones to make heading smaller */
   h1 { font-size: 40px !important; }
   h2 { font-size: 20px !important; }
+  .text-mobile { font-size: 20px !important; }
   main {
     padding: 2rem; }
-    main #home h1 {
-      margin-top: 10vh; }
-    main .lg-heading {
-      margin-top: 1rem;
-      font-size: 5rem; }
+  main #home h1 {
+    margin-top: 10vh; }
+  main .lg-heading {
+    margin-top: 1rem;
+    font-size: 5rem; }
 
   .projects {
     grid-template-columns: 1fr; } }
