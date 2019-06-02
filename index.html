@@ -1,125 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Google Verification of ownership -->
-  <meta name="google-site-verification" content="CPL5gXT6BCbq96odRg4QRdh7cHe1ivoffOJrnFRve9E" />
-
-  <!-- Start Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134120301-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-134120301-1');
-  </script>
-  <!-- End Global site tag (gtag.js) - Google Analytics -->
-
-  <title> Nick's Website </title>
-  <link href="css/main.css" rel="stylesheet" type="text/css" />
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
-
-  <link rel="stylesheet" href="css/main.css">
-  <title>Welcome To My Portfolio</title>
+  <title>Title</title>
 </head>
+<body>
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
 
-<body id="bg-img">
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+        id="checkout-button-sku_F92jTFrTFjJfhZ"
+        role="link"
+>
+  Checkout
+</button>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMKHVW5"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<div id="error-message"></div>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134120301-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-134120301-1');
+  var stripe = Stripe('pk_live_ChkgE98ZJxI73M6UVpdM4rie00wJzGP6Io');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_F92jTFrTFjJfhZ');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_F92jTFrTFjJfhZ', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://www.nicktheodoulou.com/success',
+      cancelUrl: 'https://www.nicktheodoulou.com/canceled',
+    })
+            .then(function (result) {
+              if (result.error) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer.
+                var displayError = document.getElementById('error-message');
+                displayError.textContent = result.error.message;
+              }
+            });
+  });
 </script>
-
-
-  <header>
-    <div class="menu-btn">
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-    </div>
-
-    <nav class="menu">
-      <div class="menu-branding">
-        <div class="portrait"></div>
-      </div>
-      <ul class="menu-nav">
-        <li class="nav-item current">
-          <a href="index.html" class="nav-link">
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">
-            About Me
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="work.html" class="nav-link">
-            My Work
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">
-            How To Reach Me
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="home">
-    <h1
-      class="lg-heading">Nick
-      <span
-        class="text-secondary">Theodoulou
-      </span>
-    </h1>
-    <h2 class="sm-heading">
-      Web Designer, Data Analyst & Software Developer
-    </h2>
-    <div class="icons">
-      <!--
-      <a href="#!">
-        <i class="fab fa-twitter fa-2x"></i>
-      </a>
-
-      <a href="#!">
-        <i class="fab fa-email fa-2x"></i>
-      </a>
-       -->
-      <a href="https://www.linkedin.com/in/nicktheodoulou/">
-        <i class="fab fa-linkedin fa-2x"></i>
-      </a>
-      <a href="https://github.com/nicktheodoulou">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
-    </div>
-  </main>
-
-  <script src="js/main.js"></script>
 </body>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134120301-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-134120301-1');
-</script>
-
 </html>
