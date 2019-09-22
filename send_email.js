@@ -11,6 +11,9 @@ var response = {
     "body": "{\"result\": \"Success.\"}"
 };
 
+let date = Date(Date.now());
+date = date.toString(); // returns "Sun May 10 2015 19:50:08 GMT-0600 (MDT)"
+
 exports.handler = function (event, context) {
     console.log('Received event:', event);
     sendEmail(event, function (err, data) {
@@ -28,7 +31,7 @@ function sendEmail (event, done) {
         Message: {
             Body: {
                 Text: {
-                    Data: {name: event.name, phone: event.phone, email:event.email, desc: event.desc, source_IP: event.source_IP},
+                    Data: {name: event.name, phone: event.phone, email:event.email, desc: event.desc, source_IP: event.source_IP, userAgent: event.userAgent, domainName: event.domainName, requestId: event.requestId},
                     Charset: 'UTF-8'
                 }
             },

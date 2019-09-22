@@ -1,6 +1,21 @@
 <html lang="en">
 <head>
     <title>Test Contact Form</title>
+    <p id="demo"></p>
+    <script>
+
+        function getTimeStamp()
+        {
+            var now = new Date;
+            const utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() ,
+                now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds())
+            return utc_timestamp;
+        }
+        const x = getTimeStamp.call();
+        document.getElementById("demo").innerHTML = x;
+    </script>
+
+
 </head>
 
 <body>
@@ -27,7 +42,7 @@
         $.ajax({
             type: "POST",
             url: API_URL,
-            data: JSON.stringify({"name": window.location.href,"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"domain_URL": $('#myText').val()}),
+            data: JSON.stringify({"name": $('#name_input').val(),"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"domain_URL": $('#myText').val(), "URL": window.location.href}),
             contentType: "application/json",
         });
         return false;
