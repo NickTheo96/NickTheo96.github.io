@@ -42,7 +42,7 @@
         $.ajax({
             type: "POST",
             url: API_URL,
-            data: JSON.stringify({"name": $('#name_input').val(),"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"domain_URL": $('#myText').val(), "URL": window.location.href}),
+            data: JSON.stringify({"name": $('#name_input').val(),"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"URL": window.location.href}),
             contentType: "application/json",
         });
         return false;
