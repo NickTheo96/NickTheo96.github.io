@@ -1,9 +1,10 @@
 <html lang="en">
 <head>
     <title>Test Contact Form</title>
+    <link rel="stylesheet" href="contact_form.css">
+
     <p id="demo"></p>
     <script>
-
         function getTimeStamp()
         {
             var now = new Date;
@@ -20,19 +21,27 @@
 
 <body>
 
-<h1>Please Enter your details</h1>
-<form>
-    <label for="name_input">First name:</label>
-    <input type="text" style="{height:35px;width:100%}"  id="name_input" placeholder="Enter name here" class="form-control"/><br/>
-    <label for="phone_input">Phone Number:</label>
-    <input type="tel" style="{height:35px;width:100%}" id="phone_input" placeholder="Enter phone number" class="form-control"/><br/>
-    <label for="email_input">Email:</label>
-    <input type="email" style="{height:35px;width:100%}" id="email_input" placeholder="Enter email here..." class="form-control"/><br/>
-    <label for="description_input">Message Body:</label>
-    <textarea id="description_input" rows="2" placeholder="Enter your message..." class="form-control" style="width:100%;"></textarea><br/>
-    <button id='submitButton'>Submit</button>
+<div class="container">
+<form id="contact">
+    <h3>Contact Us Here!</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+        <input placeholder="Your Name" type="text" tabindex="1" required for="name_input" id="name_input" autofocus class="form-control"/>
+    </fieldset>
+    <fieldset>
+        <input placeholder="Your Email Address" type="text" tabindex="2" required for="email_input" id="email_input" autofocus class="form-control"/>
+    </fieldset>
+    <fieldset>
+        <input placeholder="Your Phone Number" type="text" tabindex="3" required for="phone_input" id="phone_input" autofocus class="form-control"/>
+    </fieldset>
+    <fieldset>
+        <input placeholder="Type your Message Here..." type="text" tabindex="4" required for="description_input" id="description_input" autofocus class="form-control"/>
+    </fieldset>
+    <fieldset>
+        <button name="submit" type="submit" id='submitButton' data-submit="...Sending">Submit</button>
+    </fieldset>
 </form>
-
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> <!-- Load ajax for the API -->
 
