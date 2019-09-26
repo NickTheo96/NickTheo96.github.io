@@ -50,6 +50,7 @@
     $('#submitButton').on('click', function(){
         $.ajax({
             type: "POST",
+            headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
             url: API_URL,
             data: JSON.stringify({"name": $('#name_input').val(),"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"URL": window.location.href}),
             contentType: "application/json",

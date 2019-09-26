@@ -47,7 +47,7 @@ exports.handler = function (event, context, callback) {
             ntt_adv2: event.ntt_adv2,
             ntt_adv3: event.ntt_adv3,
             ntt_adv4: event.ntt_adv4,
-            ntt_adv5: event.ntt_adv5
+            ntt_adv5: event.ntt_adv5,
         },
 
         TableName: 'email_info'
