@@ -29,10 +29,10 @@
         <input placeholder="Your Name" type="text" tabindex="1" required for="name_input" id="name_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
-        <input placeholder="Your Email Address" type="email" tabindex="2" required for="email_input" id="email_input" autofocus class="form-control"/>
+        <input placeholder="Your Email Address" type="text" tabindex="2" required for="email_input" id="email_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
-        <input placeholder="Your Phone Number" type="tel" tabindex="3" required for="phone_input" id="phone_input" autofocus class="form-control"/>
+        <input placeholder="Your Phone Number" type="text" tabindex="3" required for="phone_input" id="phone_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
         <input placeholder="Type your Message Here..." type="text" tabindex="4" required for="description_input" id="description_input" autofocus class="form-control"/>
@@ -48,16 +48,30 @@
 <script type="text/javascript">
     const API_URL = 'https://n1623jk298.execute-api.eu-west-1.amazonaws.com/prod/email'; <!-- URL of AWS Post API -->
     $('#submitButton').on('click', function(){
-        $.ajax({
-            type: "POST",
-            headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-            url: API_URL,
-            data: JSON.stringify({"name": $('#name_input').val(),"phone": $('#phone_input').val(),"email": $('#email_input').val(),"desc": $('#description_input').val(),"URL": window.location.href}),
-            contentType: "application/json",
-        });
-        return false;
+        if ($("form input[type=text]").val() == "") { <!-- bullshit way to check if the form has any errors-->
+            alert("Error!");
+        }
+
+        else {
+            $.ajax({
+                type: "POST",
+                url: API_URL,
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "name": $('#name_input').val(),
+                    "phone": $('#phone_input').val(),
+                    "email": $('#email_input').val(),
+                    "desc": $('#description_input').val(),
+                    "URL": window.location.href
+                })
+            });
+            $("#submitButton").html("Thank you! We'll be in touch shortly");
+            $("#submitButton").attr("disabled", true);
+            return false;
+        }
     });
 </script>
+
 
 </body>
 </html>
