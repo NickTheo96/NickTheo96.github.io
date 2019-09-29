@@ -29,10 +29,10 @@
         <input placeholder="Your Name" type="text" tabindex="1" required for="name_input" id="name_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
-        <input placeholder="Your Email Address" type="text" tabindex="2" required for="email_input" id="email_input" autofocus class="form-control"/>
+        <input placeholder="Your Email Address" type="email" tabindex="2" required for="email_input" id="email_input" name="email_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
-        <input placeholder="Your Phone Number" type="text" tabindex="3" required for="phone_input" id="phone_input" autofocus class="form-control"/>
+        <input placeholder="Your Phone Number" type="tel" tabindex="3" required for="phone_input" id="phone_input" autofocus class="form-control"/>
     </fieldset>
     <fieldset>
         <input placeholder="Type your Message Here..." type="text" tabindex="4" required for="description_input" id="description_input" autofocus class="form-control"/>
@@ -43,17 +43,18 @@
 </form>
 </div>
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> <!-- Load ajax for the API -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+
+<script src="validation.js"></script>
 
 <script type="text/javascript">
     const API_URL = 'https://n1623jk298.execute-api.eu-west-1.amazonaws.com/prod/email'; <!-- URL of AWS Post API -->
-    $('#submitButton').on('click', function(){
-        if ($("form input[type=text]").val() == "") { <!-- bullshit way to check if the form has any errors-->
-            alert("Error!");
-        }
-
-        else {
-            $.ajax({
+    $("#submitButton").on('click', function(){
+        if (jQuery('#contact').valid()) { <!-- only submits if contact form is valid-->
+            jQuery.ajax({
                 type: "POST",
                 url: API_URL,
                 contentType: "application/json",
@@ -65,13 +66,16 @@
                     "URL": window.location.href
                 })
             });
+            alert("Thank YOU!!!!");
+        /*
             $("#submitButton").html("Thank you! We'll be in touch shortly");
             $("#submitButton").attr("disabled", true);
+            */
             return false;
         }
     });
-</script>
 
+</script>
 
 </body>
 </html>
