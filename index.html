@@ -3,13 +3,12 @@
     <title>Test Contact Form</title>
     <link rel="stylesheet" href="contact_form.css">
 
-    <p id="demo"></p>
     <script>
         function getTimeStamp()
         {
             var now = new Date;
             const utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() ,
-                now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds())
+                now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds();
             return utc_timestamp;
         }
         const x = getTimeStamp.call();
@@ -20,6 +19,9 @@
 </head>
 
 <body>
+
+<p id="demo"></p>
+
 
 <div class="container">
 <form id="contact" action="" method="post">
@@ -67,12 +69,13 @@
                 })
             });
             alert("Thank YOU!!!!");
-        /*
+            /*
             $("#submitButton").html("Thank you! We'll be in touch shortly");
             $("#submitButton").attr("disabled", true);
             */
             return false;
         }
+
     });
 
 </script>
