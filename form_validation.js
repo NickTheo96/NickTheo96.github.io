@@ -1,7 +1,10 @@
-jQuery.validator.addMethod('phoneUK', function(phone_number, element) {
-        return this.optional(element) || phone_number.length > 9 &&
-            phone_number.match(/^(\(?(0|\+44)[1-9]{1}\d{1,4}?\)?\s?\d{3,4}\s?\d{3,4})$/);
-    }, 'Please enter a valid UK phone number'
+<!-- new method added for UK phone number s-->
+
+jQuery.validator.addMethod('phoneUK', function(phone_number, element)
+    {
+        return this.optional(element) || phone_number.length > 9 && phone_number.match(/^(\(?(0|\+44)[1-9]{1}\d{1,4}?\)?\s?\d{3,4}\s?\d{3,4})$/);
+    },
+    'Please enter a valid UK phone number'
 );
 
 $(function()
@@ -27,6 +30,10 @@ $(function()
                     description_input:
                         {
                             required: true
+                        },
+                    terms_input:
+                        {
+                            required: true
                         }
         },
             messages:
@@ -40,6 +47,10 @@ $(function()
                         {
                             required: 'Please enter a phone number.',
                             email: 'Please enter a <em>valid </em> UK phone number'
+                        },
+                    terms_input:
+                        {
+                            required: 'Please accept the terms and conditions.'
                         }
                 },
     });
