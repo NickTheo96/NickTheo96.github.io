@@ -1,0 +1,44 @@
+<script>
+    function changeText(element)
+    {
+        if(element.checked)
+        {
+            document.getElementById('boldStuff').innerHTML = 'I accept the terms and conditions outlined HERE';
+
+        }
+        else
+        {
+            document.getElementById('boldStuff').innerHTML = '';
+        }
+
+    }
+</script>
+
+
+
+<div class="container">
+    <form id="contact" action="" method="post">
+        <h3>Contact Us Here!</h3>
+        <h4>Contact us today, and get reply with in 24 hours!</h4>
+        <fieldset>
+            <input placeholder="Your Name" type="text" tabindex="1" id="name_input" name="name_input" autofocus class="form-control"/>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Email Address" type="email" tabindex="2" id="email_input" name="email_input" autofocus class="form-control"/>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Phone Number" type="text" tabindex="3" id="phone_input" name="phone_input" autofocus class="form-control"/>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Type your Message Here..." type="text" tabindex="4" id="description_input" name="description_input" autofocus class="form-control"/>
+        </fieldset>
+        <fieldset>
+            <input type="checkbox" tabindex="5" id="terms_input" name="terms_input"  onchange="changeText(this)"><p id='boldStuff'>I accept the terms and conditions outlined HERE</p>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id='submitButton' data-submit="...Sending">Submit</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

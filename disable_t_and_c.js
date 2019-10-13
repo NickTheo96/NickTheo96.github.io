@@ -8,13 +8,13 @@ function activateButton(element)
     if(element.checked)
     {
         document.getElementById("submit").disabled = false;
-        document.getElementById("nick_test").InnerHTML = "aaaaaaaaaa"; <!-- code never executes -->
+        document.getElementById('boldStuff').innerHTML = 'Pease accept HERE';
 
     }
     else
     {
         document.getElementById("submit").disabled = true;
-        document.getElementById("nick_test").InnerHTML = "bbbbbbbbbbb"; <!-- code never executes -->
+        document.getElementById('boldStuff').innerHTML = '';
     }
 
 }
