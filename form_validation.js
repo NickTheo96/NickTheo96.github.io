@@ -50,7 +50,7 @@ $(function()
                         },
                     terms_input:
                         {
-                            required: 'Please accept the terms and conditions.'
+                            required: ' '
                         }
                 },
     });

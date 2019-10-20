@@ -23,7 +23,10 @@
                 <input placeholder="Type your Message Here..." type="text" tabindex="4" id="description_input" name="description_input" autofocus class="form-control"/>
             </fieldset>
             <fieldset>
-                <input type="checkbox" tabindex="5" id="terms_input" name="terms_input"  onchange="activateButton(this)"><p id='boldStuff'> </p>
+                <div class="check">
+                <input type="checkbox" tabindex="5" id="terms_input" name="terms_input"  onchange="activateButton(this)"><label for="terms_input" id='boldStuff'>
+                    I have read and agree to the PRIVACY POLICY, TERMS OF SERVICE and COMMUNITY GUIDELINES</label>
+                </div>
             </fieldset>
             <fieldset>
                 <button name="submit" type="submit" id='submitButton' data-submit="...Sending">Submit</button>
